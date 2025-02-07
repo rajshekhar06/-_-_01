@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+         http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+
+    <display-name>Plant Biology Quiz</display-name>
+
+    <!-- Default welcome file -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet for handling quiz submissions -->
+    <servlet>
+        <servlet-name>QuizServlet</servlet-name>
+        <servlet-class>com.example.QuizServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>QuizServlet</servlet-name>
+        <url-pattern>/submitQuiz</url-pattern> <!-- Handling quiz submission -->
+    </servlet-mapping>
+
+    <!-- Servlet for handling quiz page navigation -->
+    <servlet>
+        <servlet-name>QuizPageServlet</servlet-name>
+        <servlet-class>com.example.QuizPageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>QuizPageServlet</servlet-name>
+        <url-pattern>/quiz/*</url-pattern> <!-- URL pattern for quiz pages -->
+    </servlet-mapping>
+
+    <!-- Session Timeout Configuration -->
+    <session-config>
+        <session-timeout>30</session-timeout> <!-- Session expires after 30 minutes of inactivity -->
+    </session-config>
+
+</web-app>
